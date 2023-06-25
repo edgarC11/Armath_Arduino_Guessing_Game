@@ -3,23 +3,23 @@
 
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
-const byte ROWS = 4;
-const byte COLS = 4;
+const byte rows = 4;
+const byte cols = 4;
 
 byte lcd_col = 0;
 byte lcd_row = 0;
 
-char hexaKeys[ROWS][COLS] = {
+char keys[rows][cols] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
   {'7','8','9','C'},
   {'*','0','#','D'}
 };
 
-byte rowPins[ROWS] = {22, 24, 26, 28}; 
-byte colPins[COLS] = {30, 32, 34, 36};
+byte rowPins[rows] = {22, 24, 26, 28}; 
+byte colPins[cols] = {30, 32, 34, 36};
 
-Keypad customKeypad = Keypad( makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
+Keypad customKeypad = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols); 
 
 void setup()
 {
