@@ -3,23 +3,23 @@
 
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
-const int ROWS = 4; //four rows
-const int COLS = 4; //three columns
+const int rows = 4; //four rows
+const int cols = 4; //three columns
 
 byte lcd_col = 0;
-byte lcd_row = 1;
+byte lcd_row = 0;
 
-char hexaKeys[ROWS][COLS] = {
+char keys[rows][cols] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
   {'7','8','9','C'},
   {'*','0','#','D'}
 };
 
-byte pin_rows[ROWS] = {22, 24, 26, 28}; 
-byte pin_cols[COLS] = {30, 32, 34, 36};
+byte rowPins[rows] = {22, 24, 26, 28}; 
+byte colPins[cols] = {30, 32, 34, 36};
 
-Keypad keypad = Keypad( makeKeymap(hexaKeys), pin_rows, pin_cols, ROWS, COLS );
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, rows, cols);
 
 const String pin = "1234"; // change your password here
 String input_pin;
