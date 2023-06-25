@@ -11,7 +11,7 @@ char keys[ROWS][COLS] = {
   {'*', '0', '#', 'D'}
 };
 byte rowPins[ROWS] = {22, 24, 26, 28}; 
-byte colPins[COLS] = {30, 32, 34, 36};    // Connect to the column pinouts of the keypad
+byte colPins[COLS] = {30, 32, 34, 36};    
 
 // Create an instance of Keypad
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
@@ -25,24 +25,24 @@ int userGuess;
 boolean gameWon = false;
 
 void setup() {
-  randomSeed(analogRead(A0));   // Seed the random number generator with an analog pin reading
+  randomSeed(analogRead(A0));   
 
-  lcd.begin(16, 2);             // Initialize the LCD display
+  lcd.begin(16, 2);             
   lcd.setCursor(0, 0);
   lcd.print("Guess the Number");
 
-  randomNumber = random(1, 10);  // Generate a random number between 1 and 100
+  randomNumber = random(1, 10);  
 }
 
 void loop() {
-  char key = keypad.getKey();   // Read the keypad input
+  char key = keypad.getKey();   
   lcd.setCursor(0, 1);
   if (key != NO_KEY) {
     if (isdigit(key)) {
-      userGuess = userGuess * 10 + (key - '0');   // Build up the user's guess
+      userGuess = userGuess * 10 + (key - '0');   
       lcd.print(key);
     } else if (key == '#') {
-      // Check the user's guess
+      
       if (userGuess == randomNumber) {
         lcd.clear();
         lcd.print("Correct!");
@@ -59,12 +59,12 @@ void loop() {
       delay(2000);
 
       if (gameWon) {
-        // Game won, generate a new random number and restart the game
+   
         randomNumber = random(1, 10);
         gameWon = false;
       }
 
-      // Reset variables and LCD display
+      
       userGuess = 0;
       lcd.clear();
       lcd.print("Guess the Number");
