@@ -1,7 +1,7 @@
 #include <Keypad.h>
 #include <LiquidCrystal.h>
 
-// Define the keypad connections and keys
+
 const byte ROWS = 4;
 const byte COLS = 4;
 char keys[ROWS][COLS] = {
@@ -13,13 +13,13 @@ char keys[ROWS][COLS] = {
 byte rowPins[ROWS] = {22, 24, 26, 28}; 
 byte colPins[COLS] = {30, 32, 34, 36};    
 
-// Create an instance of Keypad
+
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-// Define the LCD connections
-LiquidCrystal lcd(7, 8, 9, 10, 11, 12);  // Set the LCD address to 0x27 for a 16x2 display
 
-// Game variables
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12);  
+
+
 int randomNumber;
 int userGuess;
 boolean gameWon = false;
